@@ -31,6 +31,10 @@ jobs:
         with:
           context: .
           push: true
+          # Single clean image manifest — no SLSA provenance / SBOM
+          # attestation manifests cluttering the package versions.
+          provenance: false
+          sbom: false
           tags: |
             ${{ env.IMAGE }}:latest
             ${{ env.IMAGE }}:${{ github.sha }}
