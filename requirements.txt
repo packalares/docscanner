@@ -1,0 +1,9 @@
+# App + pipeline deps. torch (CPU) is installed separately in the Dockerfile
+# from the pytorch CPU wheel index. UVDoc's demo path needs only torch (no
+# torchvision), and the cleanup is pure OpenCV/NumPy.
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+opencv-python-headless==4.10.0.84
+numpy==1.26.4
+Pillow==10.4.0

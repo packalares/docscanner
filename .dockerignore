@@ -1,0 +1,12 @@
+.git
+.github
+.venv
+**/__pycache__
+*.pyc
+.cache
+tests
+*.md
+scratch
+*.png
+*.jpg
+!uvdoc/best_model.pkl

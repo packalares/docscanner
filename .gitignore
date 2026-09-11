@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+.cache/
+.pytest_cache/
+scratch/
+*.out
+# scanned samples / local outputs (keep the model weights)
+/samples/
