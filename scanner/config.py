@@ -76,6 +76,12 @@ class Config:
         )
 
     def override(self, **kw) -> "Config":
-        """Return a copy with any non-None kwargs applied."""
-        clean = {k: v for k, v in kw.items() if v is not None}
+        """Return a copy with any non-None, *known* kwargs applied.
+
+        Unknown keys are ignored (never raises) so a caller passing an
+        unexpected field can't crash the service — it just falls back to the
+        existing value for anything it doesn't recognize.
+        """
+        fields = {f.name for f in self.__dataclass_fields__.values()}
+        clean = {k: v for k, v in kw.items() if v is not None and k in fields}
         return replace(self, **clean) if clean else self
